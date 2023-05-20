@@ -1,4 +1,4 @@
 # Global-Translator
 
 
-Hi
+Bye
