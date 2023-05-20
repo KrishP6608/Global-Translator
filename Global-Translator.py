@@ -1,14 +1,14 @@
+# Import the libraires
 import speech_recognition as sr
 from deep_translator import GoogleTranslator
 from tkinter import *
-# from tkinter import ttk
 import tkinter as tk
 import ttkbootstrap as tkk
 
+# Define the microphone
 r = sr.Recognizer()
-# translator = Translator()
 
-
+# Supported Languages
 language_codes = {'afrikaans': 'af', 'albanian': 'sq', 'amharic': 'am', 'arabic': 'ar', 'armenian': 'hy', 
                   'assamese': 'as', 'aymara': 'ay', 'azerbaijani': 'az', 'bambara': 'bm', 'basque': 'eu', 
                   'belarusian': 'be', 'bengali': 'bn', 'bhojpuri': 'bho', 'bosnian': 'bs', 'bulgarian': 'bg', 
@@ -36,28 +36,12 @@ language_codes = {'afrikaans': 'af', 'albanian': 'sq', 'amharic': 'am', 'arabic'
                   'twi': 'ak', 'ukrainian': 'uk', 'urdu': 'ur', 'uyghur': 'ug', 'uzbek': 'uz', 'vietnamese': 'vi', 
                   'welsh': 'cy', 'xhosa': 'xh', 'yiddish': 'yi', 'yoruba': 'yo', 'zulu': 'zu'}
 
-# with sr.Microphone() as source:
-#     print("Speak into the microphone!")
-#     audio = r.listen(source)
-# try:
-#     text = r.recognize_google(audio, language='auto') # Automatically detect the source language
-#     print("you said " + text)
-#     # Translate the text to each of the supported languages
-#     translated = GoogleTranslator(source='auto', target=out_code).translate(text)
-#     print("In "+ lang + " you said: " + translated)
-
-# except sr.UnknownValueError:
-#     print("Sorry, I didn't understand what you said.")
-# except sr.RequestError:
-#     print("Sorry, I couldn't process your request at this time.")
-
-
-
 # Window
 window = Tk(className='Speech-To-Text App')
 window.geometry("500x300")
 window.configure(background='#012a36')
 
+# Body
 def button_go_func():
     lang = lang_input.get()
     lang.lower()
@@ -83,11 +67,11 @@ def button_go_func():
     except sr.RequestError:
         lang_label.configure(text="Sorry, I couldn't process your request at this time.")
 
-
+# Styling the app
 style = tkk.Style()
 style.theme_use('solar')
 
-
+# Define the labels, buttons, and input box
 lang_label = tkk.Label(master=window, text='What language do you want the output as? (Type in all lower case!)')
 lang_input = tkk.Entry(master=window)
 lang_output_label = tkk.Label(master=window, text='Output will be here')
